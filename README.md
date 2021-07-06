@@ -18,9 +18,9 @@ This is a POC to showcase how graphql express can act as a mediator between ACD 
 
 # References
 This POC Uses Graphql and GraphQL Express. Below are some of the reference and training links on GraphQL
-https://graphql.org/ - Official GraphQL Documentation.
-https://youtu.be/_Zss2Mbz4Bs - GraphQL Crash course
-https://youtu.be/bRnu7xvU1_Y - Building Modern APIs with GraphQL 
-https://youtu.be/RDQyAcvmbpM - Fetching data from an API in GraphQL 
+1. https://graphql.org/ - Official GraphQL Documentation.
+2. https://youtu.be/_Zss2Mbz4Bs - GraphQL Crash course
+3. https://youtu.be/bRnu7xvU1_Y - Building Modern APIs with GraphQL 
+4. https://youtu.be/RDQyAcvmbpM - Fetching data from an API in GraphQL 
 
 There are few more alternatives we would be evaluating such as AWS AppSync, Appolo GrpahQL Client etc.
