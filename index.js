@@ -1,11 +1,12 @@
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
-import agentSchema  from './agent-schema';
-import testSchema from "./test-schema"
-import resolvers from './agent-resolvers';
-import testResolvers from "./test-resolvers"
-import agentSettingsResolver from "./agent-settings-resolvers"
-import agentSettingsSchema from "./agent-settings-schema"
+import agentSchema  from './schemas/agent-schema';
+import agentSettingsSchema from "./schemas/agent-settings-schema";
+import testSchema from "./schemas/test-schema"
+import resolvers from './resolvers/agent-resolvers';
+import testResolvers from "./resolvers/test-resolvers";
+import agentSettingsResolver from "./resolvers/agent-settings-resolvers";
+
 
 const root = resolvers;
 const schemas = testSchema;

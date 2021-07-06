@@ -1,6 +1,6 @@
 import { response } from "express";
 const fetch = require("node-fetch");
-const config = require("./config")
+const config = require("../config")
 const baseURL = config.baseURL
 const accesstoken = config.token
 
