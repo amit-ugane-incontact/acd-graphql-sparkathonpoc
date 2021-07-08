@@ -1,8 +1,8 @@
 const { GraphQLServer } = require("graphql-yoga");
 const fetch = require("node-fetch");
 const querystring = require('querystring');
-const baseURL = "http://localhost/InContactAPI/"
-const accesstoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyOjExZWJjODJlLWYzY2MtMTBhMC04YWY2LTAyNDJhYzExMDAwMyIsInJvbGUiOnsibGVnYWN5SWQiOiJBZG1pbmlzdHJhdG9yIiwic2Vjb25kYXJ5Um9sZXMiOltdLCJpZCI6IjExZWJjODJkLWM1ZTItYTJlMC04MTk0LTAyNDJhYzExMDAwMiIsImxhc3RVcGRhdGVUaW1lIjoxNjI1NTQ4ODE4MDAwfSwiaWNBZ2VudElkIjoiMTAxMSIsImlzcyI6Imh0dHBzOlwvXC9hdXRoLmRldi5uaWNlLWluY29udGFjdC5jb20iLCJnaXZlbl9uYW1lIjoiTWFuZ2VzaCIsImF1ZCI6ImludGVybmFsQGluY29udGFjdCBpbmMuIiwiaWNTUElkIjoiMjciLCJpY0JVSWQiOjQ2NjksIm5hbWUiOiJNYW5nZXNoQGRvNzIuY29tIiwidGVuYW50SWQiOiIxMWViYzgyZC1iZmU4LTU1MTAtOTBjZC0wMjQyYWMxMTAwMDIiLCJleHAiOjE2MjU3MjM2MzUsImlhdCI6MTYyNTcyMDAzNSwiZmFtaWx5X25hbWUiOiJHaG9ybW9kZSIsInRlbmFudCI6InBlcm1fcHVuZV9hcGlfZG83MjQyMTkyMTMzIiwidmlld3MiOnt9LCJpY0NsdXN0ZXJJZCI6IkRPNzIifQ.UvxvUNkcI4W21AKavqDQ59skDhcs2_ZfcVhDybc07vfmNZOo-EB0iWDBFxIWNICYUTLOAV81GgZgq4m12b3Q1lcMqCgiY202oxhShRc38KzA-Y1g6rzHQDAJWaeOZj_EJSyv0lYRhvdTU34TWDwU-fA9SkxvttV47QZ8opTyu0c"
+const baseURL = "https://api-na1.staging.niceincontact.com/incontactapi/"
+const accesstoken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyOjExZTliMzRiLTgwOWUtN2MyMC1hZjU5LTAyNDJhYzExMDAwMiIsInJvbGUiOnsibGVnYWN5SWQiOiJBZG1pbmlzdHJhdG9yIiwic2Vjb25kYXJ5Um9sZXMiOltdLCJpZCI6IjExZTdkYWMwLWMyNmQtNTJkMC1hZjE3LTAyNDJhYzExMDAwNCIsImxhc3RVcGRhdGVUaW1lIjoxNjI1NjY5OTMyMDAwfSwiaWNBZ2VudElkIjoiMzkyMjIxIiwiaXNzIjoiaHR0cHM6XC9cL2F1dGguc3RhZ2luZy5uaWNlLWluY29udGFjdC5jb20iLCJnaXZlbl9uYW1lIjoiTWFuZ2VzaCIsImF1ZCI6ImludGVybmFsQGluY29udGFjdCBpbmMuIiwiaWNTUElkIjoiMTA3Mzc0MTg4NSIsImljQlVJZCI6NDU5OTAwNiwibmFtZSI6Im1hbmdlc2guZ2hvcm1vZGVAbmljZS5jb20iLCJ0ZW5hbnRJZCI6IjExZTdkYWMwLWJlMDEtYmI1MC1iMjAyLTAyNDJhYzExMDAwMyIsImV4cCI6MTYyNTcyNTQ0NywiaWF0IjoxNjI1NzIxODQ3LCJmYW1pbHlfbmFtZSI6Ikdob3Jtb2RlIiwidGVuYW50IjoicGVybV9TTzMyTG9hZF8xMDAwMDUiLCJ2aWV3cyI6e30sImljQ2x1c3RlcklkIjoiU08zMiJ9.aH7TSgq6lqjtK2PRmoYivNPmM5y0O-T1zhS7tY7q-DmvQPCViggSsw_qEy4fq9nwMJIlUp0B8hcrGlQ1blgpO8qegsBnxSu4Qpek5km0bv08pGebUZC4wHLvG5tFIK4wwzn87Dm4zagahLtOSmCdcJIPYmN2apr36uvLPf6MUWQ"
 
 const typeDefs = `
   type Query {
@@ -39,7 +39,7 @@ const resolvers = {
   
   Agent: {    
     settings: parent => {
-      const agentSettingsUrl = `${baseURL}${parent.settings}`;
+      const agentSettingsUrl = `${baseURL}/services/v20.0/agents/${parent.agentId}/agent-settings`;
       console.log(agentSettingsUrl);
       return fetch(agentSettingsUrl,
         {            
